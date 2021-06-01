@@ -44,6 +44,7 @@ class Store {
         })
     }
 
+
     async fetchUserRepos() {
         const character = this.userLogin
         const page = this.page
@@ -60,6 +61,15 @@ class Store {
         this.setOffset = this.selectedPage * this.perPage
         this.slicedRepos = this.dataRepos.slice(this.setOffset, this.setOffset + this.perPage)
     };
+
+    nextHundred = () => {
+        this.page = this.page + 1
+        this.fetchUserRepos()
+    }
+    prevHundred = () => {
+        this.page = this.page - 1
+        this.fetchUserRepos()
+    }
 
 }
 //чтобы испоьзовать данные из стора в реакт компонентах нужно обернуть стор в реакт контекст

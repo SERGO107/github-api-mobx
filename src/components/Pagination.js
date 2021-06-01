@@ -4,6 +4,8 @@ import { observer } from 'mobx-react-lite'
 import { useContext } from 'react'
 import Store from '../store'
 import './Pagination.css'
+import { Button } from 'semantic-ui-react'
+
 
 
 const Paginat = () => {
@@ -15,13 +17,17 @@ const Paginat = () => {
                 nextLabel={'next'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
-                pageCount={Math.ceil(OwnStore.dataRepos.length/OwnStore.perPage) }
+                pageCount={Math.ceil(OwnStore.dataRepos.length / OwnStore.perPage)}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={OwnStore.handlePageClick}
                 containerClassName={'pagination'}
                 activeClassName={'active'}
             />
+            <Button.Group color='blue'>
+                <Button basic color='blue' onClick={OwnStore.prevHundred}>Previos 100 Repos</Button>
+                <Button basic color='blue' onClick={OwnStore.nextHundred}>Next 100 Repos</Button>
+            </Button.Group>
 
         </div>
     )
