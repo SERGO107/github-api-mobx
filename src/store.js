@@ -2,7 +2,6 @@
 import { makeAutoObservable, runInAction } from "mobx"
 import { createContext } from 'react'
 
-
 class Store {
     userLogin = ''
     userAvatar = ''
@@ -24,12 +23,10 @@ class Store {
         //со значением автообсервбл не нужно расставлять декораторы (@action, @observeble, @computed,@reaction) теперь mobx распознает значения автоматически
         makeAutoObservable(this)
     }
-
     handleSubmit = (name) => {
         console.log(name)
         this.userLogin = name
     }
-
     async fetchUserInfo() {
         const character = this.userLogin
         const response = await fetch(`https://api.github.com/users/${character}`)
@@ -43,8 +40,6 @@ class Store {
             console.log(data)
         })
     }
-
-
     async fetchUserRepos() {
         const character = this.userLogin
         const page = this.page
@@ -60,8 +55,7 @@ class Store {
         this.selectedPage = e.selected;
         this.setOffset = this.selectedPage * this.perPage
         this.slicedRepos = this.dataRepos.slice(this.setOffset, this.setOffset + this.perPage)
-    };
-
+    }
     nextHundred = () => {
         this.page = this.page + 1
         this.fetchUserRepos()
@@ -70,7 +64,6 @@ class Store {
         this.page = this.page - 1
         this.fetchUserRepos()
     }
-
 }
 //чтобы испоьзовать данные из стора в реакт компонентах нужно обернуть стор в реакт контекст
 export default createContext(new Store())

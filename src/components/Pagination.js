@@ -25,8 +25,8 @@ const Paginat = () => {
                 activeClassName={'active'}
             />
             <Button.Group color='blue'>
-                <Button basic color='blue' onClick={OwnStore.prevHundred}>Previos 100 Repos</Button>
-                <Button basic color='blue' onClick={OwnStore.nextHundred}>Next 100 Repos</Button>
+                <Button basic color='teal' onClick={OwnStore.prevHundred}>Previos 100 Repos</Button>
+                <Button basic color='teal' onClick={OwnStore.nextHundred}>Next 100 Repos</Button>
             </Button.Group>
 
         </div>
