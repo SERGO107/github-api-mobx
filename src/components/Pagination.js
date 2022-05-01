@@ -13,18 +13,19 @@ const Paginat = () => {
     return (
         <div>
             <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
+                align = "center"
+                previousLabel={'Back'}
+                nextLabel={'Next'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
                 pageCount={Math.ceil(OwnStore.dataRepos.length / OwnStore.perPage)}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={3}
                 onPageChange={OwnStore.handlePageClick}
                 containerClassName={'pagination'}
                 activeClassName={'active'}
             />
-            <Button.Group color='blue'>
+            <Button.Group color='blue' centered>
                 <Button basic color='teal' onClick={OwnStore.prevHundred}>Previos 100 Repos</Button>
                 <Button basic color='teal' onClick={OwnStore.nextHundred}>Next 100 Repos</Button>
             </Button.Group>
